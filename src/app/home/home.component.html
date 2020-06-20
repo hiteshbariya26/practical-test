@@ -1,0 +1,106 @@
+<div class="row">
+  <div class="col-md-12">
+
+    <div class="filters">
+      <h5>Filters</h5>
+
+      <form (ngSubmit)="onSubmit(myForm.value)" [formGroup]="myForm">
+        <!-- <div class="row">
+        <div class="col-md-12">
+          <h5>Storage</h5>
+          <div><input #storageValue name="storage" type="range" min="0" max="{{ storageMaxValue }}" [(ngModel)]="mymodel" (ngModelChange)="setStorage($event)" value="0"></div>
+        </div>
+      </div> -->
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label class="d-block">RAM</label>
+
+            <div class="row">
+              <div class="col-auto" *ngFor="let item of ram; let i=index">
+                <label>
+                  <input type="checkbox" [value]="item.value" (change)="onCheckboxChange($event)" />
+                  {{item.name}}
+                </label>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">HARD DISK TYPE</label>
+            <select class="form-control" formControlName="hardDiskType" name="hardDiskType">
+              <option value="">Select</option>
+              <option value="SAS">SAS</option>
+              <option value="SATA">SATA</option>
+              <option value="SSD">SSD</option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Location</label>
+            <select class="form-control" name="location" formControlName="location">
+              <option value="">Select</option>
+              <option [value]="location" *ngFor="let location of locations">{{location}}</option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Submit button -->
+      <div class="row">
+        <div class="col-md-12" style="margin-bottom: 15px;">
+          <button type="submit" class="btn btn-primary">
+            Filter
+          </button>
+          <button type="reset" class="btn btn-secondary">
+            Reset
+          </button>
+        </div>
+      </div>
+      <!-- End Submit button -->
+      </form>
+      
+    </div>
+
+    <div class="data-table">
+      <p-table [value]="servers">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Model</th>
+                <th>RAM</th>
+                <th>HDD</th>
+                <th>Location</th>
+                <th>Price</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-server>
+            <tr>
+                <td>{{server.Model}}</td>
+                <td>{{server.RAM}}</td>
+                <td>{{server.HDD}}</td>
+                <td>{{server.Location}}</td>
+                <td>{{server.Price}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+    <div *ngIf="noData" class="no-data">
+      <div class="alert alert-primary" role="alert">
+        No server(s) available here for this filter values
+      </div>
+  </div>
+    </div>
+  </div>
+</div>

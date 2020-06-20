@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+.header-logo{ height: 34px;}
+.home-wrapper{ padding: 15px; margin-top: 15px;}
+.navbar-nav { font-weight: 500; font-size: 15px; text-transform: uppercase;}
+.navbar-light .navbar-nav .nav-link{ color: #1a1a1a;}
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link{ color: #db3218;}
+.data-table{ max-height: 46vh; overflow-y: scroll;}
+.filters { position: relative; z-index: 999;}
+.no-data{ margin-top: 15px;}
+.btn-secondary{ margin-left: 15px;}
